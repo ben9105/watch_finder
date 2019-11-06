@@ -1,7 +1,7 @@
-import pandas as pd
-import datetime as dt
+# import pandas as pd
+# import datetime as dt
+# import re
 import praw
-import re
 import password
 import smtplib
 from smtplib import SMTP
@@ -15,13 +15,13 @@ email = password.google_email
 def watches_list():
     subreddit = reddit.subreddit('Watchexchange')
     new_subreddit = subreddit.new(limit=100)
-    watch_list = [(w.title.lower(), w.shortlink)  for w in new_subreddit]
+    watch_list = [(w.title.lower(), w.shortlink) for w in new_subreddit]
     # print(watch_list)
 
     seiko_watch = []
     for s, seiko in watch_list:
         if 'srp' in s:
-            seiko_watch.append(seiko + '/ ' + s + ' <br>')
+            seiko_watch.append(seiko + ' // ' + s + ' <br>')
     return seiko_watch
 
 
